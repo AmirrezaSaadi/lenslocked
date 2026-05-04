@@ -1,5 +1,10 @@
-/lenslocked
 lenslocked
 cmd/exp/
 *.exe
-dist/
+*.exe~
+*.dll
+*.so
+*.dylib
+
+*.test
+modd.conf
