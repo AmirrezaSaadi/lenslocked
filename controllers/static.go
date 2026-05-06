@@ -20,12 +20,17 @@ func FAQ(tpl views.Template) http.HandlerFunc {
 	}{
 		{
 			Question: "Is it free?",
-			Answer:   "Yes it is fully free and Open-Source",
+			Answer:   "Yes it is fully free and Open-Source.",
 		},
 
 		{
 			Question: "What is the meaning of life?",
-			Answer:   "42",
+			Answer:   "42.",
+		},
+
+		{
+			Question: "Lorem?",
+			Answer:   "Ipsum.",
 		},
 	}
 
