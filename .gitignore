@@ -1,5 +1,7 @@
 lenslocked
+
 cmd/exp/
+
 *.exe
 *.exe~
 *.dll
@@ -8,3 +10,5 @@ cmd/exp/
 
 *.test
 modd.conf
+
+docker-compose.yml
