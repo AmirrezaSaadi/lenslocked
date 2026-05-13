@@ -29,15 +29,17 @@ func ParseFS(fs fs.FS, pattern ...string) (Template, error) {
 	}, nil
 }
 
-func Parse(filepath string) (Template, error) {
-	tpl, err := template.ParseFiles(filepath)
-	if err != nil {
-		return Template{}, fmt.Errorf("Parsing template: %w", err)
-	}
-	return Template{
-		htmlTpl: tpl,
-	}, nil
-}
+// **REDUNDANT** TODO: DELETE
+//
+//func Parse(filepath string) (Template, error) {
+//tpl, err := template.ParseFiles(filepath)
+//if err != nil {
+//	return Template{}, fmt.Errorf("Parsing template: %w", err)
+//}
+//return Template{
+//	htmlTpl: tpl,
+//}, nil
+//
 
 func (t Template) Execute(w http.ResponseWriter, data interface{}) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
