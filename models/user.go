@@ -30,7 +30,7 @@ func (us *UserService) Create(email, password string) (*User, error) {
 	email = strings.ToLower(email)
 	hashedBytes, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
-		fmt.Errorf("Create user: %w", err)
+		return nil, fmt.Errorf("Create user: %w", err)
 	}
 	passwordHash := string(hashedBytes)
 
