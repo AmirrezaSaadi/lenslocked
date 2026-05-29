@@ -7,15 +7,16 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 func main() {
 	switch os.Args[1] {
 	case "hash":
-		hash := "password"
-		fmt.Printf("hash = %q\n", hash)
+		hash(os.Args[2])
 	case "compare":
-		fmt.Printf("comparison of hash and password: True")
+		compare(os.Args[2], os.Args[3])
 
 	default:
 		fmt.Printf("Invalid command %q\n", os.Args[1])
@@ -23,9 +24,18 @@ func main() {
 }
 
 func hash(password string) {
-
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	if err != nil {
+		fmt.Printf("Error hashing password %v \n", password)
+	}
+	fmt.Printf("Password Hash: %v", string(hashedPassword))
 }
 
-func compare(password, hash string) {
-
+func compare(hash, password string) {
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
+	if err != nil {
+		fmt.Printf("Password %v is invalid! \n", password)
+		return
+	}
+	fmt.Printf("Password is correct!")
 }
