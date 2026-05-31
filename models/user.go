@@ -20,7 +20,6 @@ type UserService struct {
 
 // May or may not implement this snippet in future :P
 //
-//
 // type NewUser struct {
 // 	Email    string
 // 	Password string }
