@@ -1,0 +1,63 @@
+{{template "header" .}}
+<div class="py-16 flex justify-center">
+    < class="px-8 py-8 bg-white rounded-lg shadow">
+        <h1 class="pt-4 pb-16 text-center text-3xl font-bold text-gray-900">
+            Welcome back
+        </h1>
+        <form action="/signin" method="post">
+            <div class="py-4">
+                <label class="font-sm font-semibold text-gray-800" for="email"
+                    >Email Address:</label
+                >
+                <input
+                    name="email"
+                    id="email"
+                    type="email"
+                    placeholder="Enter Your Email Address..."
+                    required
+                    autocomplete="email"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder-gray-400 text-gray-800"
+                    value="{{.Email}}"
+                    {{if
+                    not
+                    .Email}}autofocus{{end}}
+                />
+            </div>
+            <div class="py-4">
+                <label
+                    class="font-sm font-semibold text-gray-800"
+                    for="password"
+                    >Password:</label
+                >
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    required
+                    autocomplete="new-password"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 text-gray-800"
+                    {{if
+                    .Email}}autofocus{{end}}
+                />
+            </div>
+            <div class="py-4">
+                <button
+                    class="py-2 px-2 text-lg w-full bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold rounded-md"
+                    type="submit"
+                >
+                    Sign in
+                </button>
+            </div>
+
+            <div class="pt-12 w-full flex text-sm text-bold text-gray-700">
+                <p>
+                    Don't have an account?
+                    <a class="underline text-blue-500" href="/signup"
+                        >Sign up</a
+                    >
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+{{template "footer" .}}
